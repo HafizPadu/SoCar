@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Car | SpeedRent</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/booking.css"> <!-- Add this line -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span class="logo-text">Speed<span class="logo-highlight">Rent</span></span>
+            </div>
+            
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="cars.html" class="nav-link"><i class="fas fa-car"></i> Our Fleet</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-phone"></i> Contact</a>
+                <a href="booking.html" class="nav-link active btn-book-now"><i class="fas fa-calendar-check"></i> Book Now</a>
+            </div>
+            
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <div class="container">
+            <div class="booking-container">
+                <!-- Left Column: Form -->
+                <div class="booking-form-section">
+                    <h1 class="page-title">Book Your Car</h1>
+                    <p class="page-subtitle">Fill in the details below to reserve your vehicle</p>
+                    
+                    <form id="bookingForm" class="booking-form">
+                        <!-- Step 1: Personal Information -->
+                        <div class="form-step active" id="step1">
+                            <h2><i class="fas fa-user"></i> Personal Information</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name *</label>
+                                    <input type="text" id="fullName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="country">Country</label>
+                                    <select id="country">
+                                        <option value="">Select Country</option>
+                                        <option value="US">United States</option>
+                                        <option value="UK">United Kingdom</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="AU">Australia</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea id="address" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="btn-next" onclick="nextStep()">
+                                    Next <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Rental Details -->
+                        <div class="form-step" id="step2">
+                            <h2><i class="fas fa-calendar-alt"></i> Rental Details</h2>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pickupLocation">Pickup Location *</label>
+                                    <input type="text" id="pickupLocation" placeholder="City, Airport or Address" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="dropoffLocation">Drop-off Location</label>
+                                    <input type="text" id="dropoffLocation" placeholder="Same as pickup">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="pickupDate">Pickup Date *</label>
+                                    <input type="date" id="pickupDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pickupTime">Pickup Time *</label>
+                                    <input type="time" id="pickupTime" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="returnDate">Return Date *</label>
+                                    <input type="date" id="returnDate" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="returnTime">Return Time *</label>
+                                    <input type="time" id="returnTime" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="carType">Car Type *</label>
+                                    <select id="carType" required>
+                                        <option value="">Select Car Type</option>
+                                        <option value="sedan">Sedan</option>
+                                        <option value="suv">SUV</option>
+                                        <option value="luxury">Luxury</option>
+                                        <option value="economy">Economy</option>
+                                        <option value="van">Van</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="carModel">Car Model</label>
+                                    <select id="carModel">
+                                        <option value="">Any Model</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="btn-prev" onclick="prevStep()">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                                <button type="button" class="btn-next" onclick="nextStep()">
+                                    Next <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Extras & Payment -->
+                        <div class="form-step" id="step3">
+                            <h2><i class="fas fa-plus-circle"></i> Extras & Payment</h2>
+                            
+                            <div class="extras-section">
+                                <h3>Additional Services</h3>
+                                <div class="extras-grid">
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extras" value="insurance">
+                                        <span class="checkmark"></span>
+                                        <span class="extra-content">
+                                            <strong>Full Insurance</strong>
+                                            <span>+$15/day</span>
+                                            <small>Complete coverage with zero deductible</small>
+                                        </span>
+                                    </label>
+                                    
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extras" value="gps">
+                                        <span class="checkmark"></span>
+                                        <span class="extra-content">
+                                            <strong>GPS Navigation</strong>
+                                            <span>+$5/day</span>
+                                            <small>Built-in GPS system</small>
+                                        </span>
+                                    </label>
+                                    
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extras" value="childseat">
+                                        <span class="checkmark"></span>
+                                        <span class="extra-content">
+                                            <strong>Child Safety Seat</strong>
+                                            <span>+$10/day</span>
+                                            <small>For children 2-8 years</small>
+                                        </span>
+                                    </label>
+                                    
+                                    <label class="extra-option">
+                                        <input type="checkbox" name="extras" value="driver">
+                                        <span class="checkmark"></span>
+                                        <span class="extra-content">
+                                            <strong>Additional Driver</strong>
+                                            <span>+$20 total</span>
+                                            <small>Add another authorized driver</small>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-section">
+                                <h3>Payment Method</h3>
+                                <div class="payment-options">
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="credit" checked>
+                                        <span class="checkmark"></span>
+                                        <i class="fab fa-cc-visa"></i> Credit/Debit Card
+                                    </label>
+                                    
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="paypal">
+                                        <span class="checkmark"></span>
+                                        <i class="fab fa-paypal"></i> PayPal
+                                    </label>
+                                    
+                                    <label class="payment-option">
+                                        <input type="radio" name="payment" value="cash">
+                                        <span class="checkmark"></span>
+                                        <i class="fas fa-money-bill-wave"></i> Cash on Pickup
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="terms-section">
+                                <label class="terms-option">
+                                    <input type="checkbox" id="terms" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="#" onclick="alert('Terms & Conditions PDF would open here')">Terms & Conditions</a> and 
+                                    <a href="#" onclick="alert('Privacy Policy PDF would open here')">Privacy Policy</a> *
+                                </label>
+                            </div>
+                            
+                            <div class="form-navigation">
+                                <button type="button" class="btn-prev" onclick="prevStep()">
+                                    <i class="fas fa-arrow-left"></i> Previous
+                                </button>
+                                <button type="submit" class="btn-submit">
+                                    <i class="fas fa-check-circle"></i> Confirm Booking
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Right Column: Summary -->
+                <div class="booking-summary">
+                    <div class="summary-card">
+                        <h2><i class="fas fa-receipt"></i> Booking Summary</h2>
+                        
+                        <div class="summary-details">
+                            <div class="summary-item">
+                                <span>Car Rental</span>
+                                <span class="price">$45.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Number of Days</span>
+                                <span>3 days</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Subtotal</span>
+                                <span class="price">$135.00</span>
+                            </div>
+                            
+                            <div class="summary-extras">
+                                <h3>Extras</h3>
+                                <div class="summary-item">
+                                    <span>Full Insurance</span>
+                                    <span class="price">+$45.00</span>
+                                </div>
+                            </div>
+                            
+                            <div class="summary-total">
+                                <div class="summary-item">
+                                    <strong>Total Amount</strong>
+                                    <strong class="total-price">$180.00</strong>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary-info">
+                            <div class="info-box">
+                                <i class="fas fa-info-circle"></i>
+                                <p>All prices include taxes. No hidden fees.</p>
+                            </div>
+                            
+                            <div class="info-box">
+                                <i class="fas fa-shield-alt"></i>
+                                <p>Your booking is secured with SSL encryption.</p>
+                            </div>
+                            
+                            <div class="info-box">
+                                <i class="fas fa-clock"></i>
+                                <p>Free cancellation up to 24 hours before pickup.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <!-- Same footer as index.html -->
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
