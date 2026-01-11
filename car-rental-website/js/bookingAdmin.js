@@ -31,3 +31,17 @@ document.getElementById('searchInput').addEventListener('keyup', function () {
             : 'none';
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("searchInput");
+    const tableRows = document.querySelectorAll("tbody tr");
+
+    searchInput.addEventListener("keyup", function () {
+        const searchValue = this.value.toLowerCase();
+
+        tableRows.forEach(row => {
+            const rowText = row.textContent.toLowerCase();
+            row.style.display = rowText.includes(searchValue) ? "" : "none";
+        });
+    });
+});
