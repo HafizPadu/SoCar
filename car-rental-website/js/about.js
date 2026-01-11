@@ -128,6 +128,36 @@ const animationStyles = `
     }
 `;
 
+function checkAuth() {
+    // Simple authentication check
+    // In a real app, this would check session/token
+    const currentPage = window.location.pathname;
+    
+    // Don't check on login page
+    if (currentPage.includes('index.html') || currentPage.endsWith('admin/')) {
+        return;
+    }
+    
+    // Check if user is logged in (simple demo check)
+    const isLoggedIn = localStorage.getItem('adminLoggedIn') === 'true';
+    
+    if (!isLoggedIn) {
+        // Redirect to login page
+        window.location.href = 'index.html';
+        return;
+    }
+}
+
+function logout() {
+    if (confirm('Are you sure you want to logout?')) {
+        localStorage.removeItem('adminLoggedIn');
+        window.location.href = 'index.html';
+    }
+}
+
+// Add to global scope
+window.logout = logout;
+
 // Add animation styles to page
 const style = document.createElement('style');
 style.textContent = animationStyles;

@@ -24,301 +24,16 @@ if (isset($_GET['logout'])) {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        body {
-            background: #f5f7fb;
-            min-height: 100vh;
-        }
         
-        /* Header */
-        .admin-header {
-            background: white;
-            padding: 0 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid #edf2f7;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 24px;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-        
-        .logo i {
-            color: #3498db;
-            font-size: 28px;
-        }
-        
-        .logo span {
-            color: #3498db;
-        }
-        
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-        
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 8px 15px;
-            background: #f8fafc;
-            border-radius: 8px;
-            border: 1px solid #edf2f7;
-        }
-        
-        .user-avatar {
-            width: 36px;
-            height: 36px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 16px;
-        }
-        
-        .logout-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-        
-        .logout-btn:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
-        }
-        
-        /* Navigation */
-        .admin-nav {
-            padding: 15px 0;
-        }
-        
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 5px;
-        }
-        
-        .nav-menu a {
-            padding: 12px 20px;
-            color: #4a5568;
-            text-decoration: none;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        
-        .nav-menu a:hover {
-            background: #edf2f7;
-            color: #2c3e50;
-        }
-        
-        .nav-menu a.active {
-            background: #3498db;
-            color: white;
-        }
-        
-        .nav-menu a i {
-            font-size: 16px;
-        }
-        
-        /* Main Content */
-        .admin-main {
-            padding: 30px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        
-        .page-header {
-            margin-bottom: 30px;
-        }
-        
-        .page-title {
-            color: #2c3e50;
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        
-        .page-subtitle {
-            color: #718096;
-            font-size: 16px;
-        }
-        
-        /* Stats Grid */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-            border-left: 4px solid #3498db;
-            transition: transform 0.3s;
-        }
-        
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-        
-        .stat-title {
-            color: #718096;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .stat-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #e8f4fc, #d4e6f1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #3498db;
-            font-size: 22px;
-        }
-        
-        .stat-value {
-            font-size: 32px;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .stat-change {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .stat-change.up {
-            color: #27ae60;
-        }
-        
-        .stat-change.down {
-            color: #e74c3c;
-        }
-        
-        /* Welcome Message */
-        .welcome-message {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            padding: 25px 30px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .welcome-text h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        
-        .welcome-text p {
-            opacity: 0.9;
-        }
-        
-        .welcome-icon {
-            font-size: 48px;
-            opacity: 0.8;
-        }
-        
-        /* Table */
-        .table-container {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        
-        th {
-            padding: 15px;
-            text-align: left;
-            background: #f8fafc;
-            color: #2c3e50;
-            font-weight: 600;
-            border-bottom: 2px solid #edf2f7;
-        }
-        
-        td {
-            padding: 15px;
-            border-bottom: 1px solid #edf2f7;
-            color: #4a5568;
-        }
-        
-        tr:hover {
-            background: #f8fafc;
-        }
-        
-        .status {
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        
-        .status.confirmed {
-            background: #d5f4e6;
-            color: #27ae60;
-        }
-        
-        .status.pending {
-            background: #fff3cd;
-            color: #f39c12;
-        }
     </style>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -350,11 +65,12 @@ if (isset($_GET['logout'])) {
         <nav class="admin-nav">
             <ul class="nav-menu">
                 <li><a href="dashboard.php" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="bookings.php"><i class="fas fa-calendar-check"></i> Bookings</a></li>
+                <li><a href="../admin/booking-admin/bookingAdmin.php"> <i class="fas fa-calendar-check"></i> Booking</a></li>
                 <li><a href="cars.php"><i class="fas fa-car"></i> Car Fleet</a></li>
                 <li><a href="customers.php"><i class="fas fa-users"></i> Customers</a></li>
                 <li><a href="reports.php"><i class="fas fa-chart-bar"></i> Reports</a></li>
                 <li><a href="settings.php"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="about.php"><i class="fas fa-info-circle"></i> About Us</a></li>
             </ul>
         </nav>
     </header>
@@ -387,7 +103,7 @@ if (isset($_GET['logout'])) {
                         <i class="fas fa-dollar-sign"></i>
                     </div>
                 </div>
-                <div class="stat-value">$24,580</div>
+                <div class="stat-value">RM24,580</div>
                 <div class="stat-change up">
                     <i class="fas fa-arrow-up"></i>
                     <span>12.5% from last month</span>
@@ -461,7 +177,7 @@ if (isset($_GET['logout'])) {
                         <td>John Smith</td>
                         <td>Toyota Camry</td>
                         <td>Jan 15-18, 2024</td>
-                        <td>$135.00</td>
+                        <td>RM135.00</td>
                         <td><span class="status confirmed">Confirmed</span></td>
                     </tr>
                     <tr>
@@ -469,7 +185,7 @@ if (isset($_GET['logout'])) {
                         <td>Sarah Johnson</td>
                         <td>BMW X5</td>
                         <td>Jan 14-20, 2024</td>
-                        <td>$720.00</td>
+                        <td>RM720.00</td>
                         <td><span class="status confirmed">Confirmed</span></td>
                     </tr>
                     <tr>
@@ -477,7 +193,7 @@ if (isset($_GET['logout'])) {
                         <td>Mike Chen</td>
                         <td>Honda Civic</td>
                         <td>Jan 16-19, 2024</td>
-                        <td>$105.00</td>
+                        <td>RM105.00</td>
                         <td><span class="status pending">Pending</span></td>
                     </tr>
                     <tr>
@@ -485,7 +201,7 @@ if (isset($_GET['logout'])) {
                         <td>Emily Davis</td>
                         <td>Toyota RAV4</td>
                         <td>Jan 13-17, 2024</td>
-                        <td>$260.00</td>
+                        <td>RM260.00</td>
                         <td><span class="status confirmed">Confirmed</span></td>
                     </tr>
                 </tbody>
@@ -528,5 +244,10 @@ if (isset($_GET['logout'])) {
         // Check every 5 minutes
         setInterval(checkLogin, 5 * 60 * 1000);
     </script>
+
+<footer class="footer">
+    <!-- Same footer as index.html -->
+</footer>
+
 </body>
 </html>

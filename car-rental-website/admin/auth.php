@@ -12,7 +12,7 @@ function isLoggedIn() {
 // Redirect to login if not authenticated
 function requireLogin() {
     if (!isLoggedIn()) {
-        header('Location: index.php');
+        header('Location:index.php');
         exit();
     }
 }
@@ -35,8 +35,9 @@ function login($username, $password) {
 
 // Logout function
 function logout() {
+    session_unset();
     session_destroy();
-    header('Location: index.php');
+    header('Location:index.php');
     exit();
 }
 ?>
