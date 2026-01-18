@@ -5,9 +5,10 @@ requireLogin();
 require_once('../database_connection/oracle-connect.php');
 $conn = getOracleConnection();
 require_once 'edit_car_logic.php';
+require_once 'add_car_logic.php';
 
 // Fetch cars from Oracle
-$sql = "SELECT carid, carmodel, cartype, priceperday, availability FROM car";
+$sql = "SELECT carid, carmodel, cartype, priceperday, availability FROM car WHERE is_deleted = 0 ORDER BY carid DESC";
 $stmt = oci_parse($conn, $sql);
 oci_execute($stmt);
 ?>
@@ -115,6 +116,14 @@ oci_execute($stmt);
       <i class="fas fa-car" style="color: #3498db; margin-right: 10px;"></i>
       Car List
     </h2>
+    
+    
+    <div class="d-flex justify-content-end mb-3">
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal-add-car">
+        <i class="fas fa-plus"></i> Add Car
+      </button>
+    </div>
+
 
     <table class="table table-striped">
       <thead>
@@ -150,6 +159,65 @@ oci_execute($stmt);
                onclick="return confirm('Are you sure you want to delete this car?')">Delete</a>
           </td>
         </tr>
+
+        <!-- ADD CAR MODAL -->
+        <div class="modal fade" id="modal-add-car" tabindex="-1">
+          <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+
+              <form method="post" enctype="multipart/form-data">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add New Car</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                  <div class="row mb-3">
+                    <div class="col-lg-4">
+                      <label>Car Model</label>
+                      <input type="text" class="form-control" name="carmodel" required>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <label>Car Type</label>
+                      <input type="text" class="form-control" name="cartype" required>
+                    </div>
+
+                    <div class="col-lg-4">
+                      <label>Availability</label>
+                      <select class="form-control" name="availability">
+                        <option value="Available">Available</option>
+                        <option value="Unavailable">Unavailable</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="col-lg-6">
+                      <label>Price Per Day (RM)</label>
+                      <input type="number" class="form-control" name="priceperday" required>
+                    </div>
+
+                    <div class="col-lg-6">
+                      <label>Car Image</label>
+                      <input type="file" class="form-control" name="car_image" accept="image/*">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" name="add_car" class="btn btn-success">Add Car</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+        <!-- END ADD CAR MODAL -->
+
 
         <!-- PER-ROW MODAL -->
         <div class="modal fade" id="modal-edit-car<?php echo $row['CARID']; ?>" tabindex="-1">

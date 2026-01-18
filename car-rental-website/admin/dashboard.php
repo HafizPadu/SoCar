@@ -16,6 +16,7 @@ if (isset($_GET['logout'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | SoCar Admin</title>
+    <link rel="icon" type="image/png" href="../images/socar.png">
     <style>
         * {
             margin: 0;

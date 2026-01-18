@@ -69,6 +69,7 @@ oci_execute($stmt);
 <head>
     <meta charset="UTF-8">
     <title>Admin | Booking Records</title>
+    <link rel="icon" type="image/png" href="../images/socar.png">
     
     <style>
         * {
