@@ -23,7 +23,7 @@ $result = oci_execute($stmt, OCI_COMMIT_ON_SUCCESS);
 
 if ($result) {
     echo "<script>
-        alert('Car deleted (soft delete) successfully.');
+        alert('Car deleted successfully.');
         window.location.href = 'cars.php';
     </script>";
 } else {
